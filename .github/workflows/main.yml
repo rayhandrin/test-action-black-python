@@ -34,6 +34,11 @@ jobs:
         uses: microsoft/action-python@0.7.0
         with:          
           flake8: true
+      
+      - name: toml
+        uses: microsoft/action-python@0.7.0
+        with:
+          toml: true
 
   testing:
     runs-on: ubuntu-latest
