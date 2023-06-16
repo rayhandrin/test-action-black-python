@@ -1,4 +1,3 @@
-import time
 
 alphabet = ["a", "b", "c", "d", "e"]
 
