@@ -1,29 +1,11 @@
-name: Pull Request
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-
+name: black-action
+on: [push, pull_request]
 jobs:
-  linting:
+  linter_name:
+    name: runner / black formatter
     runs-on: ubuntu-latest
     steps:
-      - name: Black
-        uses: microsoft/action-python@0.7.0
+      - uses: actions/checkout@v2
+      - uses: datadog/action-py-black-formatter@v2.1
         with:
-          black: true
-
-      - name: Flake8
-        uses: microsoft/action-python@0.7.0
-        with:          
-          flake8: true
-
-  testing:
-    runs-on: ubuntu-latest
-    steps:    
-      - name: Pytest
-        uses: microsoft/action-python@0.7.0
-        with:          
-          testing: true
+          check_mode: "true"
